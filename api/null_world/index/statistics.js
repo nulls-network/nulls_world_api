@@ -8,10 +8,10 @@ module.exports = async (req, res) => {
     let  startTime;
     let  endTime = new Date().getTime() ;
     if(param.type == 1){
-        startTime = endTime - 24*60**60*1000;
+        startTime = endTime - 24*60*60*1000;
     }
     if(param.type == 2){
-        startTime = endTime - 7*24*60**60*1000;
+        startTime = endTime - 7*24*60*60*1000;
     }
     if(param.type == 3){
         startTime = endTime - 30*24*60*60*1000;

@@ -5,7 +5,7 @@ require("../../../model/ring_record");
 module.exports = async (req, res) => {
     let id = req.query.id;
     if (id == undefined && id.length == 0) {
-        res.status(200).json(result.errot("id 不能为空"));
+        res.status(200).json(result.errot("id is empty"));
         return
     }
     let param = {

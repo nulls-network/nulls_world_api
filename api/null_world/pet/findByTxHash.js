@@ -5,7 +5,7 @@ require("../../../model/pet");
 module.exports = async (req, res) => {
     let tx_hash  = req.query.tx_hash;
     if(tx_hash == undefined){
-        res.status(200).json(result.error("参数不合法"));
+        res.status(200).json(result.error("param is error"));
       return;
     }
     let param = {

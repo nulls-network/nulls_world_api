@@ -15,7 +15,6 @@ module.exports = async (req, res) => {
         if(pet!=null){
             petSell.dataValues.type = pet.type;
         }
-        //查询恐龙成交记录
         let option = {
             where:{pet_id:petSell.pet_id}
         }

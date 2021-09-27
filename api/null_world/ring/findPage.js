@@ -12,18 +12,26 @@ module.exports = async (req, res) => {
             offer = Number((current-1)*pageSize);
             limit = Number(pageSize)
     }
-
+    let order = [["createTime", 'desc']];
+    if(sort == 0){
+        order = [["jackpot", 'desc']];
+    }else if(sort == 1){
+        order = [["jackpot", 'asc']];
+    }else if(sort == 2){
+        order =[["createTime", 'desc']];
+    }else if(sort == 3){
+        order =[["max_multipe", 'desc']];
+    }
     const where = {};
     if (status != 0) where.status = status
     if (number?.length > 0) where.item_id = number
-    const list = await sequelizer.models.Ring.findAndCountAll({
+    const list = await this.ctx.model.Ring.findAndCountAll({
         offset: offer,
         limit: limit,
         where, 
-        order: [["createTime", 'desc']],
+        order: order,
     })
     list.rows.every(async function(ring){
-        //查询排队列表
         let list = await sequelizer.models.ItemCommitLog.findAll({
             where:{ 
                 item_id:ring.item_id, 

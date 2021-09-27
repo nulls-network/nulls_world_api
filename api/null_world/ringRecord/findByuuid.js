@@ -5,7 +5,7 @@ require("../../../model/ring_record");
 module.exports = async (req, res) => {
     let uuid = req.query.uuid;
     if(uuid =='' || uuid==undefined ||uuid==null){
-      res.status(200).json(result.error("uuid不能为空"));
+      res.status(200).json(result.error("uuid  is empty"));
       return
     }
     let param = {

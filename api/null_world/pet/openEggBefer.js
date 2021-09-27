@@ -11,7 +11,7 @@ module.exports = async (req, res) => {
     let item = await sequelizer.models.Item.findOne(param);
     
     if(item == undefined){
-        res.status(200).json(result.error("没有找到对应的item"));
+        res.status(200).json(result.error("no found item"));
       return
     }
     let data = {

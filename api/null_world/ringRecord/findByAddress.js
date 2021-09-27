@@ -11,7 +11,7 @@ module.exports = async (req, res) => {
       type:req.query.type
     } 
     if(param.address == undefined || param.pageSize == undefined || param.current ==undefined || param.type == undefined ){
-        res.status(200).json(result.error("参数不合法"));
+        res.status(200).json(result.error("param  is error"));
       return;
     }
     let {address,type,current,pageSize} = param;
