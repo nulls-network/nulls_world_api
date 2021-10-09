@@ -1,8 +1,9 @@
 /* indent size: 2 */
+
 const {DataTypes} = require('sequelize');
 const sequelize = require("../config/mysql2")
 
-  const Model = sequelize.define('EggTransaction', {
+  const Model = app.model.define('egg_transaction', {
     id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
@@ -10,11 +11,11 @@ const sequelize = require("../config/mysql2")
       autoIncrement: true
     },
     form_address: {
-      type: DataTypes.STRING(255),
+      type: DataTypes.STRING(100),
       allowNull: true
     },
     to_address: {
-      type: DataTypes.STRING(255),
+      type: DataTypes.STRING(100),
       allowNull: true
     },
     value: {
@@ -22,15 +23,27 @@ const sequelize = require("../config/mysql2")
       allowNull: true
     },
     create_time: {
-      type: DataTypes.DATE,
+      type: DataTypes.BIGINT,
       allowNull: true
     },
     tx_hash: {
-      type: DataTypes.STRING(255),
+      type: DataTypes.STRING(100),
+      allowNull: true
+    },
+    block_num: {
+      type: DataTypes.BIGINT,
+      allowNull: true
+    },
+    log_index: {
+      type: DataTypes.BIGINT,
+      allowNull: true
+    },
+    block_hash: {
+      type: DataTypes.STRING(100),
       allowNull: true
     }
   }, {
-    tableName: 'egg_transaction',
-    timestamps: false
+    tableName: 'egg_transaction'
   });
+
   module.exports = Model;

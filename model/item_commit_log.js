@@ -1,8 +1,9 @@
 /* indent size: 2 */
+
 const {DataTypes} = require('sequelize');
 const sequelize = require("../config/mysql2")
 
-  const Model = sequelize.define('ItemCommitLog', {
+  const Model = app.model.define('item_commit_log', {
     item_id: {
       type: DataTypes.INTEGER(11),
       allowNull: true
@@ -11,7 +12,7 @@ const sequelize = require("../config/mysql2")
       type: DataTypes.BIGINT,
       allowNull: true
     },
-    hv: {
+    requestKey: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
@@ -33,12 +34,28 @@ const sequelize = require("../config/mysql2")
       primaryKey: true,
       autoIncrement: true
     },
-    address: {
+    tx_hash: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    log_index: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    commit_tx_hash: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    block_num: {
+      type: DataTypes.INTEGER(11),
+      allowNull: true
+    },
+    block_hash: {
       type: DataTypes.STRING(255),
       allowNull: true
     }
   }, {
-    tableName: 'item_commit_log',
-    timestamps: false
+    tableName: 'item_commit_log'
   });
+  
   module.exports = Model;

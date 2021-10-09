@@ -1,8 +1,9 @@
 /* indent size: 2 */
+
 const {DataTypes} = require('sequelize');
 const sequelize = require("../config/mysql2")
 
-  const Model = sequelize.define('Item', {
+  const Model = app.model.define('item', {
     id: {
       type: DataTypes.BIGINT,
       allowNull: false,
@@ -22,27 +23,24 @@ const sequelize = require("../config/mysql2")
       allowNull: true
     },
     create_time: {
-      type: DataTypes.DATE,
+      type: DataTypes.BIGINT,
       allowNull: true
     },
     status: {
       type: DataTypes.INTEGER(1),
       allowNull: true
     },
-    count: {
-      type: DataTypes.INTEGER(5),
-      allowNull: true
-    },
     contract_item_id: {
       type: DataTypes.BIGINT,
-      allowNull: true
+      allowNull: true,
+      unique: true
     },
     nonce: {
       type: DataTypes.BIGINT,
       allowNull: true
     }
   }, {
-    tableName: 'item',
-    timestamps: false
+    tableName: 'item'
   });
+
   module.exports = Model;

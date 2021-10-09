@@ -1,8 +1,9 @@
 /* indent size: 2 */
+
 const {DataTypes} = require('sequelize');
 const sequelize = require("../config/mysql2")
 
-  const Model = sequelize.define('RingRecord', {
+  const Model = app.model.define('ring_record', {
     id: {
       type: DataTypes.BIGINT,
       allowNull: false,
@@ -43,13 +44,13 @@ const sequelize = require("../config/mysql2")
     },
     value: {
       type: DataTypes.BIGINT,
-      allowNull: true
+      allowNull: false
     },
     tx_hash: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    uuid: {
+    commit_tx_hash: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
@@ -68,9 +69,21 @@ const sequelize = require("../config/mysql2")
     tickets: {
       type: DataTypes.BIGINT,
       allowNull: true
+    },
+    log_index: {
+      type: DataTypes.INTEGER(11),
+      allowNull: true
+    },
+    block_num: {
+      type: DataTypes.INTEGER(11),
+      allowNull: true
+    },
+    block_hash: {
+      type: DataTypes.STRING(100),
+      allowNull: true
     }
   }, {
-    tableName: 'ring_record',
-    timestamps: false
+    tableName: 'ring_record'
   });
+
   module.exports = Model;

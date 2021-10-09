@@ -2,7 +2,7 @@
 const {DataTypes} = require('sequelize');
 const sequelize = require("../config/mysql2")
 
-  const Model = sequelize.define('Pet', {
+  const Model = app.model.define('pet', {
     pet_id: {
       type: DataTypes.BIGINT,
       allowNull: false,
@@ -13,31 +13,47 @@ const sequelize = require("../config/mysql2")
       allowNull: true
     },
     owner_address: {
-      type: DataTypes.STRING(255),
+      type: DataTypes.STRING(100),
       allowNull: true
     },
     type: {
       type: DataTypes.INTEGER(3),
       allowNull: true
     },
-    image: {
-      type: DataTypes.INTEGER(255),
-      allowNull: true
-    },
     create_time: {
       type: DataTypes.BIGINT,
       allowNull: true
     },
-    tx_hash: {
-      type: DataTypes.STRING(255),
+    block_num: {
+      type: DataTypes.BIGINT,
       allowNull: true
     },
-    uuid: {
-      type: DataTypes.STRING(255),
+    hatch_tx_hash: {
+      type: DataTypes.STRING(150),
+      allowNull: true
+    },
+    v: {
+      type: DataTypes.STRING(150),
+      allowNull: true
+    },
+    rest_time: {
+      type: DataTypes.BIGINT,
+      allowNull: true
+    },
+    tx_hash: {
+      type: DataTypes.STRING(150),
+      allowNull: true
+    },
+    log_index: {
+      type: DataTypes.BIGINT,
+      allowNull: true
+    },
+    block_hash: {
+      type: DataTypes.STRING(100),
       allowNull: true
     }
   }, {
-    tableName: 'pet',
-    timestamps: false
+    tableName: 'pet'
   });
+
   module.exports = Model;

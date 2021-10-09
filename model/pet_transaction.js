@@ -3,7 +3,7 @@
 const {DataTypes} = require('sequelize');
 const sequelize = require("../config/mysql2")
 
-  const Model = sequelize.define('PetTransaction', {
+  const Model = app.model.define('pet_transaction', {
     id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
@@ -49,11 +49,21 @@ const sequelize = require("../config/mysql2")
     current_precision: {
       type: DataTypes.STRING(255),
       allowNull: true
+    },
+    block_num: {
+      type: DataTypes.INTEGER(11),
+      allowNull: true
+    },
+    block_hash: {
+      type: DataTypes.STRING(100),
+      allowNull: true
+    },
+    log_index: {
+      type: DataTypes.INTEGER(10),
+      allowNull: true
     }
   }, {
-    tableName: 'pet_transaction',
-    timestamps: false
+    tableName: 'pet_transaction'
   });
-
 
   module.exports = Model;

@@ -1,8 +1,9 @@
 /* indent size: 2 */
+
 const {DataTypes} = require('sequelize');
 const sequelize = require("../config/mysql2")
 
-  const Model = sequelize.define('TokenInfo', {
+  const Model = app.model.define('token_info', {
     id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
@@ -29,8 +30,7 @@ const sequelize = require("../config/mysql2")
       allowNull: true
     }
   }, {
-    tableName: 'token_info',
-    timestamps: false
+    tableName: 'token_info'
   });
 
   module.exports = Model;

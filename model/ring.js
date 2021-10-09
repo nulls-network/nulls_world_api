@@ -3,7 +3,7 @@
 const {DataTypes} = require('sequelize');
 const sequelize = require("../config/mysql2")
 
-  const Model = sequelize.define('Ring', {
+  const Model = app.model.define('ring', {
     item_id: {
       type: DataTypes.BIGINT,
       allowNull: false,
@@ -68,10 +68,25 @@ const sequelize = require("../config/mysql2")
     token_precision: {
       type: DataTypes.INTEGER(1),
       allowNull: true
+    },
+    tx_hash: {
+      type: DataTypes.STRING(100),
+      allowNull: true
+    },
+    block_hash: {
+      type: DataTypes.STRING(100),
+      allowNull: true
+    },
+    block_num: {
+      type: DataTypes.INTEGER(5),
+      allowNull: true
+    },
+    log_index: {
+      type: DataTypes.INTEGER(5),
+      allowNull: true
     }
   }, {
-    tableName: 'ring',
-    timestamps: false
+    tableName: 'ring'
   });
 
   module.exports = Model;

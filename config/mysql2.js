@@ -6,6 +6,9 @@ const sequelize = new Sequelize('test2_nulls_world', process.env.USER, process.e
     port: 3306,
     dialect: 'mysql',
     dialectModule: require('mysql2'),
+    define:{
+        "timestamps" : false 
+    },
     pool: {
         max: 15,
         min: 5,
