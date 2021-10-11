@@ -3,7 +3,7 @@
 const {DataTypes} = require('sequelize');
 const sequelize = require("../config/mysql2")
 
-  const Model = app.model.define('egg_transaction', {
+  const Model = sequelize.define('egg_transaction', {
     id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
