@@ -2,7 +2,7 @@
 const {DataTypes} = require('sequelize');
 const sequelize = require("../config/mysql2")
 
-  const Model = sequelize.define('pet', {
+  const Model = sequelize.define('Pet', {
     pet_id: {
       type: DataTypes.BIGINT,
       allowNull: false,

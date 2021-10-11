@@ -3,7 +3,7 @@
 const {DataTypes} = require('sequelize');
 const sequelize = require("../config/mysql2")
 
-  const Model = sequelize.define('invited_reward', {
+  const Model = sequelize.define('InvitedReward', {
     id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,

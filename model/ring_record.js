@@ -3,7 +3,7 @@
 const {DataTypes} = require('sequelize');
 const sequelize = require("../config/mysql2")
 
-  const Model = sequelize.define('ring_record', {
+  const Model = sequelize.define('RingRecord', {
     id: {
       type: DataTypes.BIGINT,
       allowNull: false,

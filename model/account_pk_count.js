@@ -3,7 +3,7 @@ const {DataTypes} = require('sequelize');
 const sequelize = require("../config/mysql2")
 
 
-const Model = sequelize.define('account_pk_count', {
+const Model = sequelize.define('AccountPkCount', {
     address: {
       type: DataTypes.STRING(255),
       allowNull: false,
