@@ -5,8 +5,7 @@ require("../../model/item");
 module.exports = async (req, res) => {
 
     let param = {
-        where:{'model':1,'status':1},
-        order:[["count",'asc']]
+        where:{'model':1,'status':1}
     }
     let item = await sequelizer.models.Item.findOne(param);
     

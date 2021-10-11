@@ -25,21 +25,11 @@ module.exports = async (req, res) => {
     const where = {};
     if (status != 0) where.status = status
     if (number?.length > 0) where.item_id = number
-    const list = await this.ctx.model.Ring.findAndCountAll({
+    const list = await sequelizer.models.Ring.findAndCountAll({
         offset: offer,
         limit: limit,
         where, 
         order: order,
-    })
-    list.rows.every(async function(ring){
-        let list = await sequelizer.models.ItemCommitLog.findAll({
-            where:{ 
-                item_id:ring.item_id, 
-                nonce:{ [Op.gte]: ring.nonce},
-                status:0
-            }
-        });
-        ring.dataValues.list = list
     })
     res.status(200).json(result.success(list));
 }
