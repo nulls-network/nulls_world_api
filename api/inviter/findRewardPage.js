@@ -10,7 +10,7 @@ module.exports = async (req, res) => {
                 offer = Number((param.current-1)*param.pageSize);
                 limit = Number(param.pageSize)
         }
-        let data = sequelizer.models.InvitedReward.findAndCountAll({
+        let data = await sequelizer.models.InvitedReward.findAndCountAll({
             offset:offer,
             limit:limit,
             where:{address:param.address}

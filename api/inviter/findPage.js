@@ -11,7 +11,7 @@ module.exports = async (req, res) => {
             limit = Number(param.pageSize)
     }
 
-    let data = sequelizer.models.AddressInvited.findAndCountAll({
+    let data =await sequelizer.models.AddressInvited.findAndCountAll({
         offset:offer,
         limit:limit,
         where:{address:param.address},
