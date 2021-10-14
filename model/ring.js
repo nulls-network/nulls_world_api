@@ -3,7 +3,8 @@
 const {DataTypes} = require('sequelize');
 const sequelize = require("../config/mysql2")
 
-  const Model = sequelize.define('Ring', {
+
+const Model = sequelize.define('Ring', {
     item_id: {
       type: DataTypes.BIGINT,
       allowNull: false,
@@ -84,9 +85,17 @@ const sequelize = require("../config/mysql2")
     log_index: {
       type: DataTypes.INTEGER(5),
       allowNull: true
+    },
+    createdAt: {
+      type: DataTypes.DATE,
+      allowNull: true
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      allowNull: true
     }
   }, {
     tableName: 'ring'
   });
 
-  module.exports = Model;
+module.exports = Model;

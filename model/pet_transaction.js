@@ -3,7 +3,8 @@
 const {DataTypes} = require('sequelize');
 const sequelize = require("../config/mysql2")
 
-  const Model = sequelize.define('PetTransaction', {
+
+const Model = sequelize.define('PetTransaction', {
     id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
@@ -61,9 +62,17 @@ const sequelize = require("../config/mysql2")
     log_index: {
       type: DataTypes.INTEGER(10),
       allowNull: true
+    },
+    createdAt: {
+      type: DataTypes.DATE,
+      allowNull: true
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      allowNull: true
     }
   }, {
     tableName: 'pet_transaction'
   });
 
-  module.exports = Model;
+module.exports = Model;

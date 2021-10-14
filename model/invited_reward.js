@@ -3,7 +3,8 @@
 const {DataTypes} = require('sequelize');
 const sequelize = require("../config/mysql2")
 
-  const Model = sequelize.define('InvitedReward', {
+
+const Model = sequelize.define('InvitedReward', {
     id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
@@ -38,6 +39,14 @@ const sequelize = require("../config/mysql2")
       type: DataTypes.STRING(255),
       allowNull: true
     },
+    decim: {
+      type: DataTypes.BIGINT,
+      allowNull: true
+    },
+    tokenAddr: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
     tx_hash: {
       type: DataTypes.STRING(255),
       allowNull: true
@@ -53,9 +62,17 @@ const sequelize = require("../config/mysql2")
     block_hash: {
       type: DataTypes.STRING(100),
       allowNull: true
+    },
+    createdAt: {
+      type: DataTypes.DATE,
+      allowNull: true
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      allowNull: true
     }
   }, {
     tableName: 'invited_reward'
   });
 
-  module.exports = Model;
+module.exports = Model;

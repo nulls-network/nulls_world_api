@@ -1,8 +1,10 @@
 /* indent size: 2 */
+
 const {DataTypes} = require('sequelize');
 const sequelize = require("../config/mysql2")
 
-  const Model = sequelize.define('Pet', {
+
+const Model = sequelize.define('Pet', {
     pet_id: {
       type: DataTypes.BIGINT,
       allowNull: false,
@@ -51,9 +53,21 @@ const sequelize = require("../config/mysql2")
     block_hash: {
       type: DataTypes.STRING(100),
       allowNull: true
+    },
+    createdAt: {
+      type: DataTypes.DATE,
+      allowNull: true
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      allowNull: true
+    },
+    is_sell: {
+      type: DataTypes.INTEGER(1),
+      allowNull: true
     }
   }, {
     tableName: 'pet'
   });
 
-  module.exports = Model;
+module.exports = Model;

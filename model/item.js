@@ -3,7 +3,8 @@
 const {DataTypes} = require('sequelize');
 const sequelize = require("../config/mysql2")
 
-  const Model =sequelize.define('Item', {
+
+const Model = sequelize.define('Item', {
     id: {
       type: DataTypes.BIGINT,
       allowNull: false,
@@ -38,9 +39,17 @@ const sequelize = require("../config/mysql2")
     nonce: {
       type: DataTypes.BIGINT,
       allowNull: true
+    },
+    createdAt: {
+      type: DataTypes.DATE,
+      allowNull: true
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      allowNull: true
     }
   }, {
     tableName: 'item'
   });
 
-  module.exports = Model;
+module.exports = Model;

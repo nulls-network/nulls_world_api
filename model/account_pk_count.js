@@ -1,4 +1,5 @@
 /* indent size: 2 */
+
 const {DataTypes} = require('sequelize');
 const sequelize = require("../config/mysql2")
 
@@ -16,9 +17,17 @@ const Model = sequelize.define('AccountPkCount', {
     last_pk_time: {
       type: DataTypes.BIGINT,
       allowNull: true
+    },
+    createdAt: {
+      type: DataTypes.DATE,
+      allowNull: true
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      allowNull: true
     }
   }, {
     tableName: 'account_pk_count'
   });
 
-module.exports = Model
+module.exports = Model;

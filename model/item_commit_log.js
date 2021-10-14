@@ -3,7 +3,8 @@
 const {DataTypes} = require('sequelize');
 const sequelize = require("../config/mysql2")
 
-  const Model = sequelize.define('ItemCommitLog', {
+
+const Model = sequelize.define('ItemCommitLog', {
     item_id: {
       type: DataTypes.INTEGER(11),
       allowNull: true
@@ -53,9 +54,17 @@ const sequelize = require("../config/mysql2")
     block_hash: {
       type: DataTypes.STRING(255),
       allowNull: true
+    },
+    createdAt: {
+      type: DataTypes.DATE,
+      allowNull: true
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      allowNull: true
     }
   }, {
     tableName: 'item_commit_log'
   });
-  
-  module.exports = Model;
+
+module.exports = Model;
