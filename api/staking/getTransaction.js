@@ -4,20 +4,14 @@ require("../../model/staking_transaction");
 const { Op } = require("sequelize");
 
 module.exports = async (req, res) => {
-    let events = req.query["events[]"];
-    if (!events) {
-        events = req.query["events"];
-    }
-    console.log(req.query)
-    console.log("==============")
-    console.log(typeof events);
-    if (typeof events === "string") {
-        events = events.split(',');
-    }
+    let events = req.query["events[]"] || req.query["events"];
     let where = {
         address: req.query.address
     }
     if (events) {
+        if (!Array.isArray(events)) {
+            events = events.split(',');
+        }
         where.event = { [Op.in]: events }
     }
     data = await sequelizer.models.StakingTransaction.findAll({
