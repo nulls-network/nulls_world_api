@@ -5,6 +5,7 @@ const { Op } = require("sequelize");
 
 module.exports = async (req, res) => {
     let events = req.query.events;
+    console.log(req.query)
     let where = {
         address: req.query.address
     }
