@@ -18,11 +18,6 @@ const Model = sequelize.define('StakingTransaction', {
     type: DataTypes.BIGINT,
     allowNull: false
   },
-  key: {
-    type: DataTypes.INTEGER(11),
-    allowNull: false,
-    defaultValue: '0'
-  },
   event: {
     type: DataTypes.STRING(255),
     allowNull: false
