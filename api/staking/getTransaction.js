@@ -4,8 +4,10 @@ require("../../model/staking_transaction");
 const { Op } = require("sequelize");
 
 module.exports = async (req, res) => {
-    let events = req.query.events;
+    let events = req.query["events[]"];
     console.log(req.query)
+    console.log("==============")
+    console.log(events)
     let where = {
         address: req.query.address
     }
