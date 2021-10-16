@@ -11,12 +11,20 @@ module.exports = async (req, res) => {
             offer = Number((param.current-1)*param.pageSize);
             limit = Number(param.pageSize)
     }
+    let where = {
+        [Op.or]: [{ buy_user_address: param.address }, { sell_user_address: param.address }],  
+    }
+    if(param.type == 1){
+        where = { buy_user_address: param.address }
+    }
+    if(param.type == 2){
+        where = { sell_user_address: param.address }
+    }
     let opention = {
         offset:offer,
         limit:limit,
-        where:{
-            [Op.or]: [{ buy_user_address: param.address }, { sell_user_address: param.address }],  
-        }
+        where,
+        order:[["create_time","desc"]]
     }
     let data = await sequelizer.models.PetTransaction.findAndCountAll(opention);
     res.status(200).json(result.success(data));
