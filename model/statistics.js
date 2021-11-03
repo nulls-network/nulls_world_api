@@ -4,7 +4,7 @@ const {DataTypes} = require('sequelize');
 const sequelize = require("../config/mysql2")
 
 
-  const Model = app.model.define('Statistics', {
+  const Model = sequelize.define('Statistics', {
     timestamp: {
       type: DataTypes.BIGINT,
       allowNull: false,
