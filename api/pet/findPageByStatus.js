@@ -26,13 +26,17 @@ module.exports = async (req, res) => {
 
 
     // arena pet
-    where.type = req.query.type == 1 ? 255 : { [Op.ne]: 255}
+    if( jsonUtils.notEmpty(req.query.type) ){
+        where.type = req.query.type == 1 ? 255 : { [Op.ne]: 255}
+    }
 
     // leisure pet
-    where.status = { [Op.ne] : 4 }
-    if(req.query.status == 1){
-        where.status = 4
-        where.rest_time = { [Op.lt]: new Date().getTime()/1000}
+    if( jsonUtils.notEmpty(req.query.status) ){  
+        where.status = { [Op.ne] : 4 }
+        if(req.query.status == 1){
+            where.status = 4
+            where.rest_time = { [Op.lt]: new Date().getTime()/1000}
+        }
     }
 
     let option = {
