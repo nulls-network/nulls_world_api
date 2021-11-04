@@ -19,7 +19,7 @@ module.exports = async (req, res) => {
     let offset = 0;
     let limit = 10;
     console.log('分页参数：'+req.query.pageSize)
-    if(req.query.pageSize != undefined && req.query != undefined){
+    if(jsonUtils.notEmpty(req.query.pageSize) && jsonUtils.notEmpty(req.query.pageSize != undefined)){
         offset = Number((req.query.current-1)*req.query.pageSize);
         limit = Number(req.query.pageSize)
     }
