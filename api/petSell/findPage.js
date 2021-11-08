@@ -10,8 +10,8 @@ module.exports = async (req, res) => {
             offer = Number((param.current-1)*param.pageSize);
             limit = Number(param.pageSize)
     }
-    let sql = "select ps.id,ps.pet_id,ps.current,ps.current_contract,ps.price,p.type from  pet_sell ps left  join pet p on ps.pet_id = p.pet_id where ps.status = 1 ";
-    let count_sql = "select count(ps.pet_id) from  pet_sell ps left  join pet p on ps.pet_id = p.pet_id where ps.status = 1 ";
+    let sql = "select ps.id,ps.pet_id,ps.current,ps.current_contract,ps.price,p.type,r.item_id from  pet_sell ps left  join pet p on ps.pet_id = p.pet_id left join ring r on r.pet_id = ps.pet_id where ps.status = 1 ";
+    let count_sql = "select count(ps.pet_id) from  pet_sell ps left  join pet p on ps.pet_id = p.pet_id left join ring r on r.pet_id = ps.pet_id where ps.status = 1 ";
     if(param.type == 1){
         sql+= " and p.type = 255 ";
         count_sql+= " and p.type = 255 ";
