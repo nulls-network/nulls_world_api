@@ -36,7 +36,7 @@ module.exports = async (req, res) => {
         where.status = { [Op.ne] : 4 }
         if(req.query.status == 1){
             where.status = 4
-            where[Op.or] = [ { rest_time : {[Op.lt]: await dateUtils.getBlockTime() /1000} }, { rest_time : { [Op.is] : null} } ]
+            where[Op.or] = [ { rest_time : { [Op.lt]: await dateUtils.getBlockTime() } }, { rest_time : { [Op.is] : null} } ]
                 
                 //[Op.lt]: dateUtils.getBlockTime() /1000  }
         }
