@@ -2,6 +2,7 @@ const  db = require("../../config/mysql2").models;
 const  result = require("../../utils/Result");
 const { QueryTypes,Op } = require('sequelize');
 const jsonUtils = require('../../utils/jsonUtils')
+const dateUtils = require('../../utils/date')
 
 require("../../model/pet");
 
@@ -35,7 +36,9 @@ module.exports = async (req, res) => {
         where.status = { [Op.ne] : 4 }
         if(req.query.status == 1){
             where.status = 4
-            where.rest_time = { [Op.lt]: new Date().getTime()/1000}
+            where[Op.or] = [ { rest_time : {[Op.lt]:dateUtils.getBlockTime() /1000} }, { rest_time : { [Op.is] : null} } ]
+                
+                //[Op.lt]: dateUtils.getBlockTime() /1000  }
         }
     }
 
