@@ -3,9 +3,12 @@ const  result = require("../../utils/Result");
 require("../../model/item_commit_log");
 
 module.exports = async (req, res) => {
-    const {current, pageSize, address } = req.query;   
+    let {current, pageSize, address,status} = req.query;   
     let offer = 0;
     let limit = 10;
+    if(status!=1 && status !=3){
+        status = 1
+    }
     if(pageSize != undefined && current != undefined){
             offer = Number((current-1)*pageSize);
             limit = Number(pageSize)
@@ -15,7 +18,7 @@ module.exports = async (req, res) => {
         limit:limit,
         where:{
             user:address,
-            status:1
+            status:status
         },
         order:[["deadline", 'asc']]
     });
