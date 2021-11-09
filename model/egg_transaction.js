@@ -54,6 +54,14 @@ const sequelize = require("../config/mysql2")
     token: {
       type: DataTypes.STRING(255),
       allowNull: true
+    },
+    token_name: {
+      type: DataTypes.STRING(100),
+      allowNull: true
+    },
+    token_precision: {
+      type: DataTypes.STRING(100),
+      allowNull: true
     }
   }, {
     tableName: 'egg_transaction'
