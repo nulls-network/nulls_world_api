@@ -62,6 +62,10 @@ const Model = sequelize.define('ItemCommitLog', {
     updatedAt: {
       type: DataTypes.DATE,
       allowNull: true
+    },
+    user: {
+      type: DataTypes.STRING(100),
+      allowNull: true
     }
   }, {
     tableName: 'item_commit_log'
