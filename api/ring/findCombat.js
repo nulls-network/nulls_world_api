@@ -14,7 +14,8 @@ module.exports = async (req, res) => {
         offset:offer,
         limit:limit,
         where:{
-            user:address
+            user:address,
+            status:1
         },
         order:[["deadine","ASC"]]
     });
