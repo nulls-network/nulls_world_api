@@ -25,7 +25,7 @@ const Model = sequelize.define('ItemCommitLog', {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    create_time: {
+    create_time: { 
       type: DataTypes.BIGINT,
       allowNull: true
     },
