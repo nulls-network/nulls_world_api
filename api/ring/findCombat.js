@@ -6,7 +6,7 @@ module.exports = async (req, res) => {
     let {current, pageSize, address,status} = req.query;   
     let offer = 0;
     let limit = 10;
-    if(status!=1 && status !=3){
+    if(status == undefined || status == null){
         status = 1
     }
     if(pageSize != undefined && current != undefined){
