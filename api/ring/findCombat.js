@@ -17,7 +17,7 @@ module.exports = async (req, res) => {
             user:address,
             status:1
         },
-        order:[["deadine","ASC"]]
+        order:[["deadline", 'asc']]
     });
     res.status(200).json(result.success(data));
 }
