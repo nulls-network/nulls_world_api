@@ -52,7 +52,7 @@ const sequelize = require("../config/mysql2")
       allowNull: true
     },
     token: {
-      type: DataTypes.STRING(255),
+      type: DataTypes.STRING(100),
       allowNull: true
     },
     token_name: {
