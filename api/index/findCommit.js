@@ -1,5 +1,6 @@
 const  sequelizer = require("../../config/mysql2");
 const  result = require("../../utils/Result");
+const { QueryTypes,Op } = require('sequelize');
 require("../../model/item_commit_log");
 
 module.exports = async (req, res) => {
@@ -18,7 +19,10 @@ module.exports = async (req, res) => {
         limit:limit,
         where:{
             user:address,
-            status:status,
+            status:{
+                [Op.ne]: 2, 
+                [Op.eq]: status, 
+            },
             module:modules
         },
         order:[["deadline", 'asc']]
