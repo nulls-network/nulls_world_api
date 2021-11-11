@@ -10,7 +10,7 @@ module.exports = async (req, res) => {
       return;
     }
     let sql = "select rr.*,r.count from  ring_record rr left join ring r on rr.item_id = r.item_id  where"
-    let countsql = "select count(rr.id) from  ring_record rr "
+    let countsql = "select count(rr.id) from  ring_record rr where"
     let where ;
     if(type == 0){
         where = " rr.ring_address = " + address + " or  rr.challenger_address = " + address;
