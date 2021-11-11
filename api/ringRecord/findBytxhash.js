@@ -4,7 +4,7 @@ require("../../model/ring_record");
 
 module.exports = async (req, res) => {
     let txhash = req.query.txhash;
-    if (id == undefined && id.length == 0) {
+    if (txhash == undefined && txhash.length == 0) {
         res.status(200).json(result.error("id is empty"));
       return
     }

@@ -1,6 +1,6 @@
 const  sequelizer = require("../../config/mysql2");
 const  result = require("../../utils/Result");
-const { QueryType,Op  } = require('sequelize');
+const { QueryTypes,Op  } = require('sequelize');
 require("../../model/ring_record");
 
 module.exports = async (req, res) => {
