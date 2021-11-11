@@ -9,7 +9,7 @@ module.exports = async (req, res) => {
         res.status(200).json(result.error("param  is error"));
       return;
     }
-    let sql = "select rr.*,r.count from  ring_record rr  where"
+    let sql = "select rr.*,r.count from  ring_record rr left join ring r on rr.item_id = r.item_id  where"
     let countsql = "select count(rr.id) from  ring_record rr "
     let where ;
     if(type == 0){
