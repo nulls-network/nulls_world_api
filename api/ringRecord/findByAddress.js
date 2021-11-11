@@ -13,7 +13,7 @@ module.exports = async (req, res) => {
     let countsql = "select count(rr.id) from  ring_record rr where"
     let where ;
     if(type == 0){
-        where = " rr.ring_address = " + address + " or  rr.challenger_address = " + address;
+        where = " rr.ring_address = '" + address + "' or  rr.challenger_address = '" + address+ "'";
     }else if( type == 1){
         where = " rr.ring_address = " + address;
     }else{
