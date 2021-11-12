@@ -36,7 +36,7 @@ module.exports = async (req, res) => {
          })
      }
      // 查询宠物是否在出售
-     let petSell = await sequelizer.models.Pet.findOne({where:{pet_id:petId,status:1}});
+     let petSell = await sequelizer.models.PetSell.findOne({where:{pet_id:petId,status:1}});
      
      //查询是否在开启擂台
      let ring = await sequelizer.models.Ring.findOne({where:{pet_id:petId,status:1}})
