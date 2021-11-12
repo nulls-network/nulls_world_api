@@ -1,9 +1,11 @@
 const  sequelizer = require("../../config/mysql2");
 const  result = require("../../utils/Result");
-const { QueryTypes,Op } = require('sequelize');
-require("../../model/item_commit_log");
+require("../../model/statistics");
+const dateUtils = require("../../utils/date");
+const { QueryTypes } = require('sequelize');
 
-module.exports  = async (req, res) => {
+
+module.exports = async (req, res) => {
     let {current, pageSize, address,status} = req.query;   
     let offer = 0;
     let limit = 10;
@@ -24,7 +26,7 @@ module.exports  = async (req, res) => {
         type: QueryTypes.SELECT
       })
     console.log(countsql);
-    let count = await sequelizer.query(count_sql,{
+    let count = await sequelizer.query(countsql,{
         replacements: [address,status],
         type: QueryTypes.SELECT
       })
