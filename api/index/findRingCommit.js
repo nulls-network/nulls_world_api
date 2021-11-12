@@ -5,7 +5,7 @@ const dateUtils = require("../../utils/date");
 require("../../model/item_commit_log");
 
 module.exports = async (req, res) => {
-    let {current, pageSize, address,status,modules} = req.query;   
+    let {current, pageSize, address,status} = req.query;   
     let offer = 0;
     let limit = 10;
     
@@ -25,6 +25,7 @@ module.exports = async (req, res) => {
         type: QueryTypes.SELECT
       })
     let count = await sequelizer.query(count_sql,{
+        replacements: [address,status],
         type: QueryTypes.SELECT
       })
 
