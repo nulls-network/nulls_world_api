@@ -86,9 +86,13 @@ const Model = sequelize.define('ItemCommitLog', {
   token_precision: {
     type: DataTypes.STRING(100),
     allowNull: true
+  },
+  challengerPetId: {
+    type: DataTypes.BIGINT,
+    allowNull: true
   }
-  }, {
-    tableName: 'item_commit_log'
-  });
+}, {
+  tableName: 'item_commit_log'
+});
 
 module.exports = Model;
