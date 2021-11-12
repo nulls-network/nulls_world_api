@@ -33,7 +33,7 @@ module.exports = async (req, res) => {
 
     let data = {
         count:count[0]['count(icl.item_id)'],
-        row:list
+        rows:list
     }
   res.status(200).json(result.success(data));
 }
