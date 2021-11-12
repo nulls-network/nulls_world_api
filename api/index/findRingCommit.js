@@ -1,7 +1,6 @@
 const  sequelizer = require("../../config/mysql2");
 const  result = require("../../utils/Result");
 const { QueryTypes,Op } = require('sequelize');
-const dateUtils = require("../../utils/date");
 require("../../model/item_commit_log");
 
 module.exports = async (req, res) => {
@@ -19,11 +18,12 @@ module.exports = async (req, res) => {
     const  ordersql = " order by deadline asc"
     const limitsql  = " limit ?,?" 
 
-    
+    console.log(sql + ordersql + limitsql);
     let list = await sequelizer.query( sql + ordersql + limitsql,{
         replacements: [address,status,offer,limit],
         type: QueryTypes.SELECT
       })
+    console.log(countsql);
     let count = await sequelizer.query(count_sql,{
         replacements: [address,status],
         type: QueryTypes.SELECT
