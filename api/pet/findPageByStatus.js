@@ -19,6 +19,8 @@ module.exports = async (req, res) => {
     // page param
     let offset = 0;
     let limit = 10;
+    
+
     console.log('分页参数：'+req.query.pageSize)
     if(jsonUtils.notEmpty(req.query.pageSize) && jsonUtils.notEmpty(req.query.pageSize != undefined)){
         offset = Number((req.query.current-1)*req.query.pageSize);
@@ -51,7 +53,7 @@ module.exports = async (req, res) => {
     let data = await db.Pet.findAndCountAll(option);
 
     const newtime = await dateUtils.getBlockTime();
-    for (const obj in data.rows) {
+    for (const obj of data.rows) {
        if(newtime < obj.rest_time){
            obj.status = 3
        }
