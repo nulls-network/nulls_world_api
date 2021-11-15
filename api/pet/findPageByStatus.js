@@ -50,5 +50,12 @@ module.exports = async (req, res) => {
     }
     let data = await db.Pet.findAndCountAll(option);
 
+    const newtime = await dateUtils.getBlockTime();
+    for (const obj in data.rows) {
+       if(newtime < obj.rest_time){
+           obj.status = 3
+       }
+    }
+    
     res.status(200).json(result.success(data));
 }
