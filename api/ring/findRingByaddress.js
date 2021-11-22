@@ -20,7 +20,8 @@ module.exports = async (req, res) => {
         where:{
             owner_address:address,
             status:1
-        }
+        },
+        order:[["jackpot","desc"]]
     });
     res.status(200).json(result.success(data));
 }
