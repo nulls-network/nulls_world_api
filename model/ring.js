@@ -58,6 +58,10 @@ const Model = sequelize.define('Ring', {
     type: DataTypes.INTEGER(1),
     allowNull: true
   },
+  rewardRatio: {
+    type: DataTypes.INTEGER(20),
+    allowNull: true
+  },
   rewards: {
     type: DataTypes.INTEGER(1),
     allowNull: true
@@ -92,6 +96,10 @@ const Model = sequelize.define('Ring', {
   },
   updatedAt: {
     type: DataTypes.DATE,
+    allowNull: true
+  },
+  last_ring_time: {
+    type: DataTypes.BIGINT,
     allowNull: true
   }
 }, {
