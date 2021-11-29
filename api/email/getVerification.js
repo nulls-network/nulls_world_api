@@ -8,7 +8,11 @@ const randomUtils = require("../../utils/randomUtils");
 
 module.exports = async (req, res) => {
     const  { email } = req.query;
-
+    var pattern = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+    if (!pattern.test(email)){
+        res.status(200).json(result.success("email  Invalid parameter"));
+        return
+    }
     const random = randomUtils.genteRandom();
     let mailOptions = {
         from: '"java-罗鸿清" <15279163025@163.com>', 
