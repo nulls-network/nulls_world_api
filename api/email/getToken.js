@@ -33,6 +33,7 @@ module.exports = async (req, res) => {
                 res.status(200).json(result.success("The verification code is invalid. Obtain it again"));
                 return
             }
+            
             redis.hsetBuffer(email,"get_time",nowtime);
             redis.hsetBuffer(email,"status",2)
             const wallet = await contract.getWalletByPrivate(process.env.ERC20_USER);
