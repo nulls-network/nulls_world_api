@@ -3,10 +3,10 @@ const Redis = require("ioredis")
 
 
 const  redis = new Redis({
-    port: 7001, // Redis port
-    host: "139.9.214.55", // Redis host
+    port: 6379, // Redis port
+    host: process.env.REDIS_HOST, // Redis host
     family: 4, // 4 (IPv4) or 6 (IPv6)
-    password: "admin123456",
+    password: process.env.REDIS_PASSWORD,
     db: 0,
   });
 
