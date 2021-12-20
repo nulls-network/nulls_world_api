@@ -102,6 +102,10 @@ const Model = sequelize.define('RingRecord', {
     current_count: {
       type: DataTypes.BIGINT,
       allowNull: true
+    },
+    requestKey: {
+      type: DataTypes.STRING(255),
+      allowNull: true
     }
   }, {
     tableName: 'ring_record'
